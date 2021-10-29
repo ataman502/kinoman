@@ -34,11 +34,6 @@ export default {
     layout () {
       return (this.$route.meta.layout || 'main') + '-layout'
     }
-  },
-  watch: {
-    theme (value) {
-      console.log(value)
-    }
   }
 }
 </script>

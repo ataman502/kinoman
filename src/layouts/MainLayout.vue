@@ -99,6 +99,12 @@ export default {
     }
   },
   async mounted () {
+    // Получаем данные из LS
+    if (localStorage.infoUser) {
+      this.getLocalStorageInfo()
+      this.loading = false
+    }
+
     await this.getBasicInfo()
     this.setLocalStorageInfo()
     this.loading = false
