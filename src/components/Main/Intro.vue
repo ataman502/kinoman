@@ -1,12 +1,10 @@
 <template>
-  <section
-    class="intro"
-  >
+  <section class="intro">
     <Loader v-if="loading" />
     <div
       v-else
       class="intro__image"
-      :style="{backgroundImage: 'url(' + introFilm.images.backdrops[0].url + ')'}"
+      :style="{backgroundImage: 'url(' + introFilm.data.posterUrl + ')'}"
     >
       <div class="container-fluid">
         <div class="row">
@@ -114,13 +112,20 @@ export default {
 }
 
 .intro {
+  margin: 0 40px;
+  margin-top: $header__height + 10;
   position: relative;
   width: 100%;
   height: 500px;
   overflow: hidden;
+  border-radius: $border-radius__big;
+  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size + 3
+    fade-out(#000, 0.7%);
 
   @media (max-width: $breackpoints__md) {
     height: 400px;
+    margin: 0 10px;
+    margin-top: $header__height + 10;
   }
 }
 
@@ -155,9 +160,9 @@ export default {
     @media (max-width: $breackpoints__md) {
       background: linear-gradient(
         to right,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(4, 4, 4, 0.6) 50%,
-        rgba(9, 9, 9, 1) 100%
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(4, 4, 4, 0.3) 50%,
+        rgba(9, 9, 9, 0.9) 100%
       );
     }
   }
