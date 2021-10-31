@@ -109,7 +109,7 @@ export default {
   methods: {
     handleScroll () {
       const scroll = window.scrollY
-      if (scroll > 20 && scroll > this.scrollPrev) {
+      if (scroll > 5 && scroll > this.scrollPrev) {
         this.fade = true
         this.headerFixed = false
       } else if (scroll <= 10) {
@@ -141,6 +141,7 @@ export default {
 
 .header {
   max-width: calc(100% - 100px);
+  max-height: $header__height;
   position: fixed;
   overflow: hidden;
   width: 100%;

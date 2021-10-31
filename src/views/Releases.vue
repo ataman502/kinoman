@@ -6,9 +6,7 @@
       v-else
       name="transform-fade"
     >
-      <div
-        class="container-fluid"
-      >
+      <div class="container-fluid">
         <div class="items__text">
           <h4>Релизы за {{ currentMonth().ru }}</h4>
         </div>

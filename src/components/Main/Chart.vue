@@ -60,11 +60,6 @@ export default {
   },
   async created () {
     this.$store.state.app.loading = true
-    // Если ничего нет в LS
-    if (this.chartLS) {
-      this.getLocalStorageInfo()
-      this.loading = false
-    }
 
     await this.getChartsFilms()
     this.$store.state.app.loading = false

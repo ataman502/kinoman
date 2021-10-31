@@ -1,12 +1,8 @@
 <template>
-  <section
-    class="page row justify-content-end no-gutters"
-  >
+  <section class="page row justify-content-end no-gutters">
     <!-- NavBar -->
 
-    <aside
-      class="navbar__container"
-    >
+    <aside class="navbar__container">
       <Navbar />
     </aside>
 
@@ -16,9 +12,7 @@
         <Header />
       </div>
 
-      <main
-        class="row no-gutters w-100"
-      >
+      <main class="row no-gutters w-100">
         <Loader
           v-if="loading"
           style="width: 100%; min-height: 100vh"
@@ -256,5 +250,10 @@ export default {
 .your__movie {
   padding-top: $padding__views - 30;
   width: 100%;
+}
+
+// lazyLoading
+.lazy__loading {
+  margin-bottom: 100px;
 }
 </style>

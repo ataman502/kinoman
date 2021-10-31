@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="chart"
-  >
+  <section class="chart">
     <Loader v-if="loading" />
     <div
       v-else
@@ -10,31 +8,7 @@
       <div class="row">
         <div class="col">
           <h3 class="chart__title">
-            Топ 1 в чарте
-          </h3>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <div
-            class="chart__top"
-          >
-            <div class="chart__top-film film">
-              <FilmItemInfo
-                class="col-12"
-                :key="charts.films[0].filmId"
-                :item-info="charts.films[0]"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <h3 class="chart__title">
-            Остальное
+            Топ 20 в чарте
           </h3>
         </div>
       </div>

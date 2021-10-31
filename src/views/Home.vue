@@ -128,7 +128,7 @@ export default {
         },
         year: {
           from: '2018',
-          to: '2020'
+          to: '2030'
         },
         page: ['1', '2', '3', '4', '5']
       }
@@ -140,8 +140,7 @@ export default {
 
         const filmId = await randomIdArr(filmsArr).filmId
         const film = await this.$store.dispatch('getInfoFilm', filmId)
-
-        if (film.images.backdrops.length) {
+        if (film.data.posterUrl.length) {
           await this.$store.dispatch('setIntroFilm', film)
         } else {
           await this.getIntroFilm()

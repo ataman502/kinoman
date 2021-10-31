@@ -73,7 +73,7 @@
       </transition-group>
 
       <div
-        class="col-12"
+        class="col-12 lazy__loading"
         v-if="!($route.fullPath === '/')"
       >
         <Loader v-if="lazyLoading" />
