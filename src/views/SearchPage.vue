@@ -8,7 +8,7 @@
           role="search"
           v-model="inputSearch"
           placeholder="Найдите свои любимые фильмы"
-          @keyup="searchFilms"
+          @keypress.enter="searchFilms"
           tabindex="1"
           class="searchpage__input"
         >

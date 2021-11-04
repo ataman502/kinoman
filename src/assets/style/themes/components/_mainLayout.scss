@@ -1,11 +1,10 @@
 .page {
-  background-color: $colors__primary2;
+  background-color: $colors__body;
 }
 
 .content {
   background-color: $colors__body;
-  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size
-    fade-out(#000, 0.8%);
+  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size fade-out(#000, 0.8%);
 }
 
 .items__title {

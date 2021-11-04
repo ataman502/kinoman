@@ -4,7 +4,7 @@
     <div
       v-else
       class="intro__image"
-      :style="{backgroundImage: 'url(' + introFilm.data.posterUrl + ')'}"
+      :style="{ backgroundImage: 'url(' + introFilm.data.posterUrl + ')' }"
     >
       <div class="container-fluid">
         <div class="row">
@@ -23,20 +23,17 @@
                   <ul class="intro__descr-item">
                     <li>
                       Страна:
-                      <span> {{ introFilm.data.countries }}
-                      </span>
+                      <span> {{ introFilm.data.countries }} </span>
                     </li>
 
                     <li>
                       Год:
-                      <span>{{ introFilm.data.year }}
-                      </span>
+                      <span>{{ introFilm.data.year }} </span>
                     </li>
 
                     <li>
                       Жанр:
-                      <span> {{ introFilm.data.genres }}
-                      </span>
+                      <span> {{ introFilm.data.genres }} </span>
                     </li>
 
                     <li>
@@ -44,6 +41,15 @@
                       <span>{{ introFilm.rating.rating }}</span>
                     </li>
                   </ul>
+
+                  <div
+                    class="filmitem__rating"
+                    :class="rating"
+                  >
+                    <h5>
+                      {{ introFilm.rating.rating || 'Без рейтинга' }}
+                    </h5>
+                  </div>
                 </div>
               </div>
             </div>
@@ -113,7 +119,7 @@ export default {
 
 .intro {
   margin: 0 40px;
-  margin-top: $header__height + 10;
+  margin-top: $header__height + 20px;
   position: relative;
   width: 100%;
   height: 500px;
@@ -123,9 +129,10 @@ export default {
     fade-out(#000, 0.7%);
 
   @media (max-width: $breackpoints__md) {
-    height: 400px;
+    height: 300px;
     margin: 0 10px;
-    margin-top: $header__height + 10;
+    margin-top: $header__height + 20px;
+    border-radius: $border-radius__small;
   }
 }
 
@@ -135,10 +142,11 @@ export default {
   height: 100%;
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: inherit;
   justify-content: center;
+  align-items: flex-end;
   background-size: cover;
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
   // background-attachment: fixed;
   // border-radius: 0 0 $border-radius__small $border-radius__small;
@@ -150,21 +158,6 @@ export default {
     height: 100%;
     position: absolute;
     bottom: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(15, 15, 15, 1) 0%,
-      rgba(15, 15, 15, 0.6) 50%,
-      rgba(0, 0, 0, 0) 75%
-    );
-
-    @media (max-width: $breackpoints__md) {
-      background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(4, 4, 4, 0.3) 50%,
-        rgba(9, 9, 9, 0.9) 100%
-      );
-    }
   }
 }
 
@@ -195,15 +188,20 @@ export default {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  border-radius: $border-radius__small - 5;
+  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size + 3
+    fade-out(#000, 0.7%);
 
   @media (max-width: $breackpoints__xs) {
     line-height: $line-height--normal;
+    padding: 10px;
+    margin-bottom: 60px;
   }
 }
 
 .intro__text {
   padding: 0 10px;
-  display: -webkit-box;
+  display: none;
   font-family: $font-family__sans;
   font-weight: $font-weight__sans__regular;
   line-height: $line-height--small + 5px;
@@ -218,7 +216,7 @@ export default {
 }
 
 .intro__descr-item {
-  display: flex;
+  display: none;
   flex-direction: column;
   flex-wrap: wrap;
   text-align: center;

@@ -7,12 +7,14 @@
 }
 
 .intro__title {
-  color: #e1e3e7;
+  background-color: #ffffff;
+  color: #000;
 }
 
 .intro__text {
   color: fade-out(#e1e3e7, 0.1%);
 }
+
 .intro__descr-item {
   // border-top: $border-width solid fade-out($colors__border, 0.5%);
   color: #ffffff;

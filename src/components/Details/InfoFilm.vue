@@ -1,27 +1,18 @@
 <template>
-  <section
-    class="infofilm"
-  >
-    <Loader
-      v-if="loading"
-    />
+  <section class="infofilm">
+    <Loader v-if="loading" />
 
     <div v-else>
       <FilmBanner :banner-info="infoFilm" />
 
-      <div
-        class="infofilm__content"
-      >
+      <div class="infofilm__content">
         <div class="container-fluid">
           <div class="row">
             <div
               class="col-lg-6"
               v-if="trailerFilm.trailers"
             >
-              <div
-
-                class="infofilm__trailer"
-              >
+              <div class="infofilm__trailer infofilm__item">
                 <youtube
                   ref="youtube"
                   :video-id="videoId"
@@ -30,40 +21,47 @@
             </div>
 
             <div class="col-lg-6">
-              <ul class="infofilm__attributes">
+              <ul class="infofilm__attributes infofilm__item">
                 <li>
                   Страна:
-                  <span> {{ filterCountries || "N/A" }}
-                  </span>
+                  <span> {{ filterCountries || 'N/A' }} </span>
                 </li>
                 <li>
                   Год:
-                  <span>{{ infoFilm.data.year || "N/A" }}</span>
+                  <span>{{ infoFilm.data.year || 'N/A' }}</span>
                 </li>
                 <li>
-                  Премьера в мире: <span>{{ infoFilm.data.premiereWorld ||infoFilm.data.premiereRu || "N/A" }} </span> (год-месяц-день)
+                  Премьера в мире:
+                  <span>{{
+                    infoFilm.data.premiereWorld ||
+                      infoFilm.data.premiereRu ||
+                      'N/A'
+                  }}
+                  </span>
+                  (год-месяц-день)
                 </li>
                 <li>
                   Жанр:
-                  <span> {{ filterGenres || "N/A" }}
-                  </span>
+                  <span> {{ filterGenres || 'N/A' }} </span>
                 </li>
 
                 <li>
                   Слоган:
-                  <span>{{ infoFilm.data.slogan || "N/A" }}</span>
+                  <span>{{ infoFilm.data.slogan || 'N/A' }}</span>
                 </li>
                 <li>
                   Длина:
-                  <span>{{ infoFilm.data.filmLength ||"N/A" }}</span>
+                  <span>{{ infoFilm.data.filmLength || 'N/A' }}</span>
                 </li>
                 <li>
                   Возрастное ограничение:
-                  <span>{{ infoFilm.data.ratingAgeLimits || "N/A" }}</span>
+                  <span>{{ infoFilm.data.ratingAgeLimits || 'N/A' }}</span>
                 </li>
                 <li>
                   КиноПоиск:
-                  <span :class="rating">{{ infoFilm.rating.rating || "N/A" }}</span>
+                  <span :class="rating">{{
+                    infoFilm.rating.rating || 'N/A'
+                  }}</span>
                 </li>
               </ul>
             </div>
@@ -75,28 +73,24 @@
                 class="col"
                 v-if="infoFilm.data.description"
               >
-                <div
-                  class="infofilm__descr"
-                >
+                <div class="infofilm__descr infofilm__item">
                   <div class="infofilm__heading">
                     <h2>Описание</h2>
                   </div>
 
                   <p>
-                    {{ infoFilm.data.description || "Описание отсутсвует" }}
+                    {{ infoFilm.data.description || 'Описание отсутсвует' }}
                   </p>
                 </div>
               </div>
 
               <div
                 class="col-lg"
-                v-if="(infoFilm.data.seasons).length"
+                v-if="infoFilm.data.seasons.length"
               >
-                <div class="infofilm__episodes">
+                <div class="infofilm__episodes infofilm__item">
                   <div class="infofilm__heading">
-                    <h2>
-                      Эпизоды ({{ sumEpisodes }})
-                    </h2>
+                    <h2>Эпизоды ({{ sumEpisodes }})</h2>
                   </div>
 
                   <div class="infofilm__episodes-scroll">
@@ -110,7 +104,7 @@
 
                       <div
                         class="infofilm__episodes-films"
-                        v-for="episode in seasons.episodes "
+                        v-for="episode in seasons.episodes"
                         :key="episode.episodeNumber"
                       >
                         <div
@@ -122,13 +116,17 @@
                           </div>
                           <div class="col-8">
                             <p>
-                              {{ episode.nameRu || episode.nameEn || "Нет информации о названии" }}
+                              {{
+                                episode.nameRu ||
+                                  episode.nameEn ||
+                                  'Нет информации о названии'
+                              }}
                             </p>
                           </div>
 
                           <div class="col-3">
                             <time>
-                              {{ episode.releaseDate || "N/A" }}
+                              {{ episode.releaseDate || 'N/A' }}
                             </time>
                           </div>
                         </div>
@@ -139,9 +137,7 @@
               </div>
             </div>
 
-            <div
-              class="row infofilm__staff"
-            >
+            <div class="row infofilm__staff infofilm__item">
               <div class="infofilm__heading">
                 <h2>Команда</h2>
               </div>
@@ -151,9 +147,7 @@
                 v-for="staff in staffFilm"
                 :key="staff.staffId"
               >
-                <div
-                  class="infofilm__staff-item"
-                >
+                <div class="infofilm__staff-item">
                   <div class="infofilm__staff-img">
                     <img
                       :src="staff.posterUrl"
@@ -165,19 +159,21 @@
                   <div class="infofilm__staff-title">
                     <h4>{{ staff.nameRu || staff.nameEn }}</h4>
 
-                  <!-- <h5>{{ staff.professionText }}</h5> -->
+                    <!-- <h5>{{ staff.professionText }}</h5> -->
                   </div>
                 </div>
               </div>
 
               <div
                 class="infofilm__staff-bg"
-                :style="{backgroundImage: 'url(' + infoFilm.data.posterUrl + ')'}"
+                :style="{
+                  backgroundImage: 'url(' + infoFilm.data.posterUrl + ')'
+                }"
               />
             </div>
 
             <div
-              class="row infofilm__sequels "
+              class="row infofilm__sequels"
               v-if="sequels.length"
             >
               <div class="infofilm__heading">
@@ -354,7 +350,7 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import '@/assets/style/vars/_vars';
 
 .infofilm {
@@ -379,16 +375,38 @@ export default {
 
   @media (max-width: $breackpoints__md) {
     border-radius: $border-radius__big;
+    padding: 10px 0;
+  }
+}
+
+.infofilm__item {
+  border-radius: $border-radius__small;
+
+  @media (max-width: $breackpoints__md) {
+    margin-bottom: 30px;
   }
 }
 
 .infofilm__trailer {
-  padding-bottom: 20px;
+  display: flex;
   height: 100%;
+
+  iframe {
+    margin: 20px;
+    border-radius: $border-radius__small;
+  }
+
+  @media (max-width: $breackpoints__md) {
+    height: auto;
+
+    iframe {
+      margin: 0;
+    }
+  }
 }
 
 .infofilm__attributes {
-  padding: 10px 0;
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -414,17 +432,24 @@ export default {
       font-family: $font-family__sans;
       font-weight: $font-weight__sans__bold;
       color: #f60;
+
+      span {
+        padding: 1px 20px;
+        border-radius: 10px;
+      }
     }
   }
 }
 
 .infofilm__wrap {
   padding-top: 0;
+  margin-top: 20px;
 }
 
 .infofilm__descr {
   min-height: 200px;
   height: 100%;
+  padding: 20px;
   p {
     padding: 10px 0;
     @include adaptiv-font($size--normal, $size--small);
@@ -432,11 +457,16 @@ export default {
     font-weight: $font-weight__sans__regular;
     line-height: $line-height--small + 5;
   }
+
+  @media (max-width: $breackpoints__md) {
+    height: auto;
+  }
 }
 
 .infofilm__episodes {
   height: 100%;
   overflow: hidden;
+  padding: 20px;
 }
 
 .infofilm__episodes-scroll {
@@ -486,6 +516,8 @@ export default {
 
 .infofilm__staff {
   margin: 0 auto;
+  margin-top: 40px;
+  padding: 20px;
   position: relative;
 }
 

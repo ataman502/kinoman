@@ -11,20 +11,17 @@
     >
       <Intro />
 
-      <section
-        class="items"
-      >
+      <section class="items">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
-              <h3 class="items__title time">
-                {{ time }}<span v-if="userName">, {{ userName }}</span>
-              </h3>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <h3 class="items__title">
+                    {{ time }}<span v-if="userName">, {{ userName }}</span>
+                  </h3>
+                </div>
+              </div>
               <h3 class="items__title">
                 Новые релизы
               </h3>
@@ -108,7 +105,8 @@ export default {
       }
     },
     userName () {
-      return this.$store.getters.info.name
+      const info = this.$store.getters.info || ''
+      return info.name
     }
   },
 

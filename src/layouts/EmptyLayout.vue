@@ -145,8 +145,8 @@ export default {
     }
   }
 
-   @media (max-width: $breackpoints__md) {
-    img{
+  @media (max-width: $breackpoints__md) {
+    img {
       max-width: 200px;
     }
   }
@@ -201,6 +201,10 @@ export default {
   min-width: 400px;
   max-width: 400px;
   animation: translate 100s linear infinite alternate;
+
+  .filmitem__menu {
+    display: none;
+  }
 }
 
 @keyframes translate {
