@@ -80,6 +80,7 @@ export default {
   padding: 5px;
   box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size + 3
     fade-out(#000, 0.7%);
+  backdrop-filter: blur(12px);
 
   @media (min-width: $breackpoints__md) {
     display: none;

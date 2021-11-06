@@ -172,8 +172,30 @@
               />
             </div>
 
+            <!-- Когда-нибудь здесь будут факты -->
+            <!-- <div
+              class="row infofilm__facts infofilm__item"
+              v-if="infoFilm.data.facts.length"
+            >
+              <div class="infofilm__heading">
+                <h2>Факты</h2>
+              </div>
+
+              <div class="col-12">
+                <ul
+                  class="infofilm__facts-items"
+                  v-for="facts in infoFilm.data.facts"
+                  :key="facts"
+                >
+                  <li class="infofilm__facts-item">
+                    {{ facts }}
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+
             <div
-              class="row infofilm__sequels"
+              class="row infofilm__sequels infofilm__item"
               v-if="sequels.length"
             >
               <div class="infofilm__heading">
@@ -392,21 +414,17 @@ export default {
   height: 100%;
 
   iframe {
-    margin: 20px;
+    margin: 0;
     border-radius: $border-radius__small;
   }
 
   @media (max-width: $breackpoints__md) {
     height: auto;
-
-    iframe {
-      margin: 0;
-    }
   }
 }
 
 .infofilm__attributes {
-  padding: 20px 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -578,10 +596,29 @@ export default {
 
 .infofilm__sequels {
   width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 
 iframe {
   width: 100%;
   height: 450;
+}
+
+.infofilm__facts {
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 20px;
+  position: relative;
+}
+
+.infofilm__facts-item {
+  font-family: $font-family__sans;
+  font-weight: $font-weight__sans__light;
+  @include adaptiv-font($size--normal, $size--small);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

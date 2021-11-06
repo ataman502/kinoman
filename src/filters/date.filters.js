@@ -1,3 +1,3 @@
-export default function dateFilter(value, format = 'date') {
+export default function dateFilter (value, format = 'date') {
   return value
 }

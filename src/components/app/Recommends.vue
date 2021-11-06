@@ -65,7 +65,7 @@
         name="transform-fade"
       >
         <FilmItemInfo
-          class="col-xl-4 col-md-6"
+          class="col-xl-3 col-md-6"
           v-for="recommends in recommends.films"
           :key="recommends.filmId"
           :item-info="recommends"

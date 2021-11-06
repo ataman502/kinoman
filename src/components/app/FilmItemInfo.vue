@@ -131,6 +131,12 @@ export default {
     height: 100%;
     position: absolute;
     bottom: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.8) 10%,
+      rgba(9, 9, 9, 0) 100%
+    );
   }
 
   &:hover {
@@ -175,12 +181,11 @@ export default {
   height: 100%;
   padding: 0 10px;
   padding-bottom: 0px;
-  padding-top: 350px;
+  padding-top: 450px;
   overflow: hidden;
   z-index: 3;
 
   @media (max-width: $breackpoints__xs) {
-
   }
 }
 

@@ -1,18 +1,19 @@
 .infofilm__content {
   background-color: $colors__body;
-  box-shadow: $shadows__coords-x - 5 $shadows__coords-y - 10 $shadows__size fade-out(#000, 0.7%);
+  box-shadow: $shadows__coords-x - 5 $shadows__coords-y - 10 $shadows__size
+    fade-out(#000, 0.7%);
 }
 
-.infofilm__trailer {}
+.infofilm__trailer {
+}
 
 .infofilm__item {
   background-color: $colors__blackPrimary;
-  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size fade-out(#000, 0.7%);
+  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size
+    fade-out(#000, 0.7%);
 }
 
 .infofilm__attributes {
-
-
   li {
     color: $colors__grays;
 
@@ -39,14 +40,13 @@
 }
 
 .infofilm__descr {
-
-
   p {
     color: $colors__grays--lighter;
   }
 }
 
-.infofilm__episodes {}
+.infofilm__episodes {
+}
 
 .infofilm__episodes-seasons {
   color: $colors__grays--lighter;
@@ -64,12 +64,19 @@
 }
 
 .infofilm__staff-img {
-  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size + 10 fade-out(#000, 0.7%);
+  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size + 10
+    fade-out(#000, 0.7%);
 }
 
 .infofilm__staff-title {
   h4 {
     color: $colors__grays;
-    text-shadow: $shadows__coords-x $shadows__coords-y $shadows__size + 10 fade-out($colors__black, 0.8%);
+    text-shadow: $shadows__coords-x $shadows__coords-y $shadows__size + 10
+      fade-out($colors__black, 0.8%);
   }
+}
+
+.infofilm__facts-item {
+  color: $colors__grays--lighter;
+  border-bottom: $border-width solid fade-out($colors__border, 0.5%);
 }

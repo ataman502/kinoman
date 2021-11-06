@@ -1,5 +1,5 @@
 .mobile {
-  background: $colors__blackPrimary;
+  background: fade-out($colors__blackGrays, 0.5);
 }
 
 .mobile__links {
