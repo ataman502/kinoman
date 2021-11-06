@@ -1,24 +1,7 @@
-# kinoman
+# KinoMan
 
-## Project setup
+Для тех кто любит кино!
 ```
-npm install
+![Image alt](https://github.com/manerror502/kinoman/blob/fcc4fcc51d9bbbfdf667481d68022c482a3ef286/public/img/kinomanPR.jpg)
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Минимум информации, максимум интереса!
