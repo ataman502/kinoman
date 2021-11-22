@@ -4,7 +4,7 @@
     <div
       v-else
       class="intro__image"
-      :style="{backgroundImage: 'url(' + introFilm.data.posterUrl + ')'}"
+      :style="{ backgroundImage: 'url(' + introFilm.data.posterUrl + ')' }"
     >
       <div class="container-fluid">
         <div class="row">
@@ -23,25 +23,24 @@
                   <ul class="intro__descr-item">
                     <li>
                       Страна:
-                      <span> {{ introFilm.data.countries }}
-                      </span>
+                      <span> {{ introFilm.data.countries }} </span>
                     </li>
 
                     <li>
                       Год:
-                      <span>{{ introFilm.data.year }}
-                      </span>
+                      <span>{{ introFilm.data.year }} </span>
                     </li>
 
                     <li>
                       Жанр:
-                      <span> {{ introFilm.data.genres }}
-                      </span>
+                      <span> {{ introFilm.data.genres }} </span>
                     </li>
 
                     <li>
                       КиноПоиск:
-                      <span>{{ introFilm.rating.rating }}</span>
+                      <span class="intro__decr-rating">{{
+                        introFilm.rating.rating
+                      }}</span>
                     </li>
                   </ul>
                 </div>
@@ -112,20 +111,17 @@ export default {
 }
 
 .intro {
-  margin: 0 40px;
-  margin-top: $header__height + 10;
+  margin: 0px;
   position: relative;
   width: 100%;
   height: 500px;
   overflow: hidden;
-  border-radius: $border-radius__big;
+  // border-radius: 0 0  $border-radius__big $border-radius__big;
   box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size + 3
     fade-out(#000, 0.7%);
 
   @media (max-width: $breackpoints__md) {
-    height: 400px;
-    margin: 0 10px;
-    margin-top: $header__height + 10;
+    height: 350px;
   }
 }
 
@@ -245,6 +241,11 @@ export default {
       color: #f60;
     }
   }
+}
+
+.intro__decr-rating {
+  padding: 5px 10px;
+  border-radius: $border-radius__small - 4;
 }
 
 @keyframes intro-scale {

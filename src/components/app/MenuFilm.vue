@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="menu"
-  >
+  <section class="menu">
     <Loader v-if="loading" />
 
     <div
@@ -44,7 +42,7 @@
         <button
           class="btn"
           @click.prevent="like"
-          :class="{like: filmLike}"
+          :class="{ like: filmLike }"
         >
           <span>
             <svg viewBox="0 0 471.701 471.701">
@@ -85,9 +83,7 @@
               />
             </svg>
           </span>
-          <p>
-            Открыть информацию о кино
-          </p>
+          <p>Открыть информацию о кино</p>
         </button>
 
         <button
@@ -118,9 +114,7 @@
               />
             </svg>
           </span>
-          <p>
-            Поделиться
-          </p>
+          <p>Поделиться</p>
         </button>
 
         <button
@@ -196,7 +190,7 @@ export default {
   },
   methods: {
     async like () {
-      if (!await this.$store.dispatch('getUid')) {
+      if (!(await this.$store.dispatch('getUid'))) {
         // Если не авторизован
         this.$router.push('/login')
         this.$toast.error('Вы не авторизованны')
@@ -242,7 +236,7 @@ export default {
           const film = await this.$store.dispatch('notLike', filmInfo)
           // await this.$store.dispatch('deleteRecommend', filmInfo)
           // Удаляем элементd
-          this.filmsLike = this.filmsLike.filter(filmLike => !film.filmId)
+          this.filmsLike = this.filmsLike.filter((filmLike) => !film.filmId)
 
           // Перерисовка компонента
           this.counter++
@@ -254,7 +248,7 @@ export default {
       this.menuClose()
     },
     async bookmark () {
-      if (!await this.$store.dispatch('getUid')) {
+      if (!(await this.$store.dispatch('getUid'))) {
         // Если не авторизован
 
         this.$router.push('/login')
@@ -282,7 +276,7 @@ export default {
           // await this.$store.dispatch('deleteRecommend', filmInfo)
           // Удаляем элементd
           this.filmsBookmarks = this.filmsBookmarks.filter(
-            filmBookmark => !film.filmId
+            (filmBookmark) => !film.filmId
           )
 
           // Перерисовка компонента
@@ -310,7 +304,7 @@ export default {
           .then(() => {
             this.$toast.success('Ссылка скопированна в буфер обмена')
           })
-          .catch(e => {
+          .catch((e) => {
             console.log(e)
           })
       } else {
@@ -322,24 +316,24 @@ export default {
 
     genresRecommendSet (filmReccomendInfo) {
       // Добавляем в рекоммендации жанры
-      filmReccomendInfo.genres.forEach(element => {
+      filmReccomendInfo.genres.forEach((element) => {
         const genreName = element.genre
 
         // Ищем жанр фильма в массиве всех жаноров
         const findGenre = this.filters.genres.find(
-          genre => genre.genre === genreName
+          (genre) => genre.genre === genreName
         )
         this.$store.dispatch('addedRecommendGenres', findGenre.id)
       })
     },
     countriesRecommendSet (filmReccomendInfo) {
       // Добавляем в рекоммендации страны
-      filmReccomendInfo.countries.forEach(element => {
+      filmReccomendInfo.countries.forEach((element) => {
         const countryName = element.country
 
         // Ищем страны фильма в массиве всех стран
         const findCountry = this.filters.countries.find(
-          country => country.country === countryName
+          (country) => country.country === countryName
         )
 
         this.$store.dispatch('addedRecommendCountries', findCountry.id)

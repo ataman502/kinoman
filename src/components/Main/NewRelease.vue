@@ -32,6 +32,11 @@ export default {
 
     hooperSettings: {
       itemsToShow: 3.1,
+      mouseDrag: false,
+      trimWhiteSpace: true,
+      autoPlay: true,
+      playSpeed: 10000,
+      hoverPause: true,
       breakpoints: {
         1303: {
           itemsToShow: 3.5

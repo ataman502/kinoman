@@ -9,6 +9,7 @@
       <slide
         v-for="film in charts.films"
         :key="film.filmId"
+        class="films"
       >
         <FilmItemInfo
           :item-info="film"
@@ -32,6 +33,11 @@ export default {
 
     hooperSettings: {
       itemsToShow: 3.1,
+      mouseDrag: false,
+      trimWhiteSpace: true,
+      autoPlay: true,
+      playSpeed: 10000,
+      hoverPause: true,
       breakpoints: {
         1303: {
           itemsToShow: 3.5
@@ -99,9 +105,31 @@ export default {
 @import '@/assets/style/vars/_vars';
 .release {
   overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: '';
+    opacity: 1;
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(9, 9, 9, 0) 100%
+    );
+  }
 }
 
 .film {
   width: 100%;
+  margin: 0;
+
+  .filmitem {
+    margin: 0;
+  }
 }
 </style>

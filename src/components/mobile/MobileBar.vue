@@ -10,7 +10,7 @@
           active-class="active"
           :exact="link.exact"
           class="mobile__item"
-          :class="{contrast: themeWhite}"
+          :class="{ contrast: themeWhite }"
         >
           <img
             :src="link.icon"
@@ -69,10 +69,18 @@ export default {
 
 .mobile {
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
+  right: 50%;
   z-index: 20;
-  width: 100%;
+  width: 80%;
   user-select: none;
+  transform: translate3d(50%, 0, 0);
+  border-radius: 50px;
+  overflow: hidden;
+  padding: 5px;
+  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size + 3
+    fade-out(#000, 0.7%);
+  backdrop-filter: blur(12px);
 
   @media (min-width: $breackpoints__md) {
     display: none;
@@ -94,6 +102,7 @@ export default {
   padding: 15px 10px;
   width: calc(100% / 5);
   transition: $transition-duration $transition-timing-function;
+  border-radius: 50%;
 
   img {
     max-width: 30px;

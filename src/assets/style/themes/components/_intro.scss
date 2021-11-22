@@ -7,12 +7,13 @@
 }
 
 .intro__title {
-  color: #e1e3e7;
+  color: rgb(255, 255, 255);
 }
 
 .intro__text {
   color: fade-out(#e1e3e7, 0.1%);
 }
+
 .intro__descr-item {
   // border-top: $border-width solid fade-out($colors__border, 0.5%);
   color: #ffffff;
@@ -23,11 +24,10 @@
     span {
       color: #e1e3e7;
     }
-
-    &:last-child {
-      span {
-        color: $colors__green;
-      }
-    }
   }
+}
+
+.intro__decr-rating {
+  background-color: $colors__green;
+  color: rgb(255, 255, 255);
 }

@@ -30,7 +30,7 @@
         active-class="active"
         class="btn app__search"
         v-scroll="handleScroll"
-        :class="{fade: fadeSearch || $route.fullPath === '/search'}"
+        :class="{ fade: fadeSearch || $route.fullPath === '/search' }"
       >
         <svg viewBox="0 0 512 512">
           <path
@@ -107,7 +107,7 @@ export default {
   methods: {
     getLocalStorageInfo () {
       // Получение Инфорамии о пользователе из локального хранилища
-      if (!localStorage.infoUser) {
+      if (localStorage.infoUser == null) {
         return
       }
 
@@ -201,10 +201,16 @@ export default {
 }
 
 .items__title {
+  margin-top: 10px;
+  margin-left: 20px;
   @include adaptiv-font($size--large, $size--normal + 10);
   font-family: $font-family__sans;
   user-select: none;
   margin-bottom: 23px;
+}
+
+.time {
+  padding-left: 40px;
 }
 
 .blur__img {
