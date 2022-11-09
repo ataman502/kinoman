@@ -72,10 +72,10 @@
 </template>
 
 <script>
-import NewRelease from '@/components/Main/NewRelease'
+import Recommends from '@/components/app/Recommends'
 import Charts from '@/components/Main/Chart'
 import Intro from '@/components/Main/Intro'
-import Recommends from '@/components/app/Recommends'
+import NewRelease from '@/components/Main/NewRelease'
 
 import randomIdArr from '@/utils/randomIdArr'
 
@@ -105,8 +105,7 @@ export default {
       }
     },
     userName () {
-      const info = this.$store.getters.info || ''
-      return info.name
+      return this.$store.getters.info?.name || ''
     }
   },
 
@@ -125,7 +124,7 @@ export default {
           to: '10'
         },
         year: {
-          from: '2018',
+          from: '2021',
           to: '2030'
         },
         page: ['1', '2', '3', '4', '5']

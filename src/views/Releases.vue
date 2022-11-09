@@ -48,7 +48,7 @@ export default {
     date: {
       full: null,
       month: 'Januar',
-      year: '2020'
+      year: '2021'
     },
 
     loading: true,

@@ -81,7 +81,7 @@ export default {
         return
       }
 
-      this.chart = JSON.parse(localStorage.getItem('charts'))
+      this.charts = JSON.parse(localStorage.getItem('charts'))
     },
     setChartLS () {
       // Отправляем информацию о фильмах в LS
@@ -101,8 +101,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '@/assets/style/vars/_vars';
+
 .release {
   overflow: hidden;
   position: relative;
@@ -121,6 +122,10 @@ export default {
       rgba(0, 0, 0, 0.4) 50%,
       rgba(9, 9, 9, 0) 100%
     );
+  }
+
+  ::v-deep .hooper {
+    height: auto;
   }
 }
 
